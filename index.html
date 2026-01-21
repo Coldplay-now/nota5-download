@@ -10,32 +10,107 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            padding: 40px 20px;
         }
         .container {
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             padding: 60px;
-            max-width: 600px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .header {
             text-align: center;
+            margin-bottom: 50px;
         }
         .logo { font-size: 72px; margin-bottom: 20px; }
         h1 { font-size: 48px; color: #333; margin-bottom: 10px; }
-        .tagline { font-size: 20px; color: #666; margin-bottom: 40px; }
+        .tagline { font-size: 20px; color: #666; margin-bottom: 30px; }
+        
+        /* 截图轮播 */
+        .screenshots {
+            margin-bottom: 50px;
+        }
+        .screenshots h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .screenshot-container {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            background: #1a1a2e;
+        }
+        .screenshot-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .screenshot-slider img {
+            width: 100%;
+            flex-shrink: 0;
+            display: block;
+        }
+        .screenshot-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: background 0.2s;
+        }
+        .screenshot-nav:hover { background: white; }
+        .screenshot-nav.prev { left: 15px; }
+        .screenshot-nav.next { right: 15px; }
+        .screenshot-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        .screenshot-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .screenshot-dots span.active { background: #667eea; }
+        
+        /* 功能特点 */
         .features {
-            text-align: left;
-            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        .feature {
             padding: 20px;
             background: #f8f9fa;
             border-radius: 12px;
         }
-        .features h3 { color: #333; margin-bottom: 15px; }
-        .features ul { list-style: none; color: #555; line-height: 2; }
-        .features li::before { content: "✓ "; color: #667eea; font-weight: bold; }
+        .feature-icon { font-size: 28px; margin-bottom: 10px; }
+        .feature h3 { color: #333; margin-bottom: 8px; font-size: 16px; }
+        .feature p { color: #666; font-size: 14px; line-height: 1.5; }
+        
+        /* 下载区域 */
+        .download-section {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
         .download-btn {
             display: inline-block;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -52,32 +127,125 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
         }
-        .version { margin-top: 15px; color: #999; font-size: 14px; }
-        .requirements { margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
-        .footer { margin-top: 30px; color: #aaa; font-size: 12px; }
+        .version { margin-top: 15px; color: #888; font-size: 14px; }
+        .requirements { margin-top: 15px; color: #999; font-size: 13px; }
+        
+        .footer {
+            text-align: center;
+            color: #aaa;
+            font-size: 12px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        @media (max-width: 600px) {
+            .container { padding: 30px 20px; }
+            h1 { font-size: 32px; }
+            .features { grid-template-columns: 1fr; }
+            .download-btn { padding: 15px 35px; font-size: 18px; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">📝</div>
-        <h1>Nota5</h1>
-        <p class="tagline">简单、极速的 Markdown 编辑器</p>
-        <div class="features">
-            <h3>功能特点</h3>
-            <ul>
-                <li>实时预览，编辑/预览/分屏三种模式</li>
-                <li>KaTeX 数学公式支持</li>
-                <li>Mermaid 图表支持</li>
-                <li>代码高亮</li>
-                <li>图片粘贴与拖拽</li>
-                <li>导出 PDF / HTML</li>
-                <li>原生 macOS 应用，流畅体验</li>
-            </ul>
+        <div class="header">
+            <div class="logo">📝</div>
+            <h1>Nota5</h1>
+            <p class="tagline">简单、极速的 Markdown 编辑器</p>
         </div>
-        <a href="Nota5-Installer-v1.3.21.dmg" class="download-btn">⬇️ 下载 Nota5</a>
-        <p class="version">当前版本：v1.3.21</p>
-        <p class="requirements">系统要求：macOS 14.0+｜支持 Apple Silicon 与 Intel</p>
-        <p class="footer">© 2026 Nota5</p>
+        
+        <div class="screenshots">
+            <h2>应用截图</h2>
+            <div class="screenshot-container">
+                <div class="screenshot-slider" id="slider">
+                    <img src="screenshots/screenshot1.png" alt="Nota5 截图1">
+                    <img src="screenshots/screenshot2.png" alt="Nota5 截图2">
+                    <img src="screenshots/screenshot3.png" alt="Nota5 截图3">
+                    <img src="screenshots/screenshot4.png" alt="Nota5 截图4">
+                </div>
+                <button class="screenshot-nav prev" onclick="prevSlide()">‹</button>
+                <button class="screenshot-nav next" onclick="nextSlide()">›</button>
+            </div>
+            <div class="screenshot-dots" id="dots">
+                <span class="active" onclick="goToSlide(0)"></span>
+                <span onclick="goToSlide(1)"></span>
+                <span onclick="goToSlide(2)"></span>
+                <span onclick="goToSlide(3)"></span>
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">✍️</div>
+                <h3>实时预览</h3>
+                <p>编辑/预览/分屏三种模式，所见即所得</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🧮</div>
+                <h3>数学公式</h3>
+                <p>KaTeX 渲染，支持行内和块级公式</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <h3>Mermaid 图表</h3>
+                <p>流程图、时序图、类图等一应俱全</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎨</div>
+                <h3>代码高亮</h3>
+                <p>支持数十种编程语言语法高亮</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🖼️</div>
+                <h3>图片粘贴</h3>
+                <p>直接粘贴或拖拽图片，自动保存</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📄</div>
+                <h3>导出功能</h3>
+                <p>一键导出 PDF / HTML，方便分享</p>
+            </div>
+        </div>
+        
+        <div class="download-section">
+            <a href="Nota5-Installer-v1.3.21.dmg" class="download-btn">⬇️ 下载 Nota5</a>
+            <p class="version">当前版本：v1.3.21</p>
+            <p class="requirements">系统要求：macOS 14.0+ ｜ 支持 Apple Silicon 与 Intel</p>
+        </div>
+        
+        <p class="footer">© 2026 Nota5. All rights reserved.</p>
     </div>
+    
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 4;
+        const slider = document.getElementById('slider');
+        const dots = document.querySelectorAll('#dots span');
+        
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+        
+        function goToSlide(n) {
+            currentSlide = n;
+            updateSlider();
+        }
+        
+        // 自动轮播
+        setInterval(nextSlide, 5000);
+    </script>
 </body>
 </html>
