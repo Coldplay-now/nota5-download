@@ -20,17 +20,39 @@
             max-width: 900px;
             margin: 0 auto;
         }
+        
+        /* 顶部区域：标题 + 下载 */
         .header {
             text-align: center;
             margin-bottom: 50px;
         }
-        .logo { font-size: 72px; margin-bottom: 20px; }
-        h1 { font-size: 48px; color: #333; margin-bottom: 10px; }
-        .tagline { font-size: 20px; color: #666; margin-bottom: 30px; }
+        .logo { font-size: 72px; margin-bottom: 15px; }
+        h1 { font-size: 48px; color: #333; margin-bottom: 8px; }
+        .tagline { font-size: 20px; color: #666; margin-bottom: 25px; }
         
-        /* 截图轮播 */
+        /* 下载按钮 - 顶部显著位置 */
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+        .version { margin-top: 12px; color: #888; font-size: 14px; }
+        .requirements { margin-top: 8px; color: #aaa; font-size: 13px; }
+        
+        /* 截图区域 */
         .screenshots {
-            margin-bottom: 50px;
+            margin: 50px 0;
         }
         .screenshots h2 {
             text-align: center;
@@ -51,8 +73,10 @@
         }
         .screenshot-slider img {
             width: 100%;
+            height: auto;
             flex-shrink: 0;
             display: block;
+            object-fit: contain;
         }
         .screenshot-nav {
             position: absolute;
@@ -60,11 +84,11 @@
             transform: translateY(-50%);
             background: rgba(255,255,255,0.9);
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 20px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
             transition: background 0.2s;
         }
@@ -74,12 +98,12 @@
         .screenshot-dots {
             display: flex;
             justify-content: center;
-            gap: 8px;
-            margin-top: 15px;
+            gap: 10px;
+            margin-top: 18px;
         }
         .screenshot-dots span {
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
             background: #ddd;
             cursor: pointer;
@@ -90,70 +114,52 @@
         /* 功能特点 */
         .features {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin-bottom: 50px;
+            margin: 50px 0;
         }
         .feature {
-            padding: 20px;
+            padding: 25px 20px;
             background: #f8f9fa;
             border-radius: 12px;
-        }
-        .feature-icon { font-size: 28px; margin-bottom: 10px; }
-        .feature h3 { color: #333; margin-bottom: 8px; font-size: 16px; }
-        .feature p { color: #666; font-size: 14px; line-height: 1.5; }
-        
-        /* 下载区域 */
-        .download-section {
             text-align: center;
-            padding: 40px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
-            border-radius: 16px;
-            margin-bottom: 30px;
         }
-        .download-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            padding: 18px 50px;
-            border-radius: 50px;
-            font-size: 20px;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        }
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
-        }
-        .version { margin-top: 15px; color: #888; font-size: 14px; }
-        .requirements { margin-top: 15px; color: #999; font-size: 13px; }
+        .feature-icon { font-size: 32px; margin-bottom: 12px; }
+        .feature h3 { color: #333; margin-bottom: 8px; font-size: 16px; }
+        .feature p { color: #666; font-size: 13px; line-height: 1.5; }
         
         .footer {
             text-align: center;
             color: #aaa;
             font-size: 12px;
-            padding-top: 20px;
+            padding-top: 30px;
             border-top: 1px solid #eee;
         }
         
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
             .container { padding: 30px 20px; }
             h1 { font-size: 32px; }
-            .features { grid-template-columns: 1fr; }
+            .features { grid-template-columns: repeat(2, 1fr); }
             .download-btn { padding: 15px 35px; font-size: 18px; }
+        }
+        @media (max-width: 480px) {
+            .features { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- 顶部：标题 + 下载按钮 -->
         <div class="header">
             <div class="logo">📝</div>
             <h1>Nota5</h1>
             <p class="tagline">简单、极速的 Markdown 编辑器</p>
+            <a href="Nota5-Installer-v1.3.21.dmg" class="download-btn">⬇️ 立即下载</a>
+            <p class="version">v1.3.21 · 5.4 MB</p>
+            <p class="requirements">macOS 14.0+ ｜ Apple Silicon & Intel</p>
         </div>
         
+        <!-- 截图轮播 -->
         <div class="screenshots">
             <h2>应用截图</h2>
             <div class="screenshot-container">
@@ -174,43 +180,38 @@
             </div>
         </div>
         
+        <!-- 功能特点 -->
         <div class="features">
             <div class="feature">
                 <div class="feature-icon">✍️</div>
                 <h3>实时预览</h3>
-                <p>编辑/预览/分屏三种模式，所见即所得</p>
+                <p>编辑/预览/分屏三种模式</p>
             </div>
             <div class="feature">
                 <div class="feature-icon">🧮</div>
                 <h3>数学公式</h3>
-                <p>KaTeX 渲染，支持行内和块级公式</p>
+                <p>KaTeX 渲染支持</p>
             </div>
             <div class="feature">
                 <div class="feature-icon">📊</div>
                 <h3>Mermaid 图表</h3>
-                <p>流程图、时序图、类图等一应俱全</p>
+                <p>流程图、时序图等</p>
             </div>
             <div class="feature">
                 <div class="feature-icon">🎨</div>
                 <h3>代码高亮</h3>
-                <p>支持数十种编程语言语法高亮</p>
+                <p>多语言语法高亮</p>
             </div>
             <div class="feature">
                 <div class="feature-icon">🖼️</div>
                 <h3>图片粘贴</h3>
-                <p>直接粘贴或拖拽图片，自动保存</p>
+                <p>粘贴或拖拽图片</p>
             </div>
             <div class="feature">
                 <div class="feature-icon">📄</div>
                 <h3>导出功能</h3>
-                <p>一键导出 PDF / HTML，方便分享</p>
+                <p>PDF / HTML 导出</p>
             </div>
-        </div>
-        
-        <div class="download-section">
-            <a href="Nota5-Installer-v1.3.21.dmg" class="download-btn">⬇️ 下载 Nota5</a>
-            <p class="version">当前版本：v1.3.21</p>
-            <p class="requirements">系统要求：macOS 14.0+ ｜ 支持 Apple Silicon 与 Intel</p>
         </div>
         
         <p class="footer">© 2026 Nota5. All rights reserved.</p>
@@ -224,9 +225,7 @@
         
         function updateSlider() {
             slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlide);
-            });
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
         }
         
         function nextSlide() {
@@ -244,7 +243,6 @@
             updateSlider();
         }
         
-        // 自动轮播
         setInterval(nextSlide, 5000);
     </script>
 </body>
