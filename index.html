@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota5 - 简单、极速的 Markdown 编辑器</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 60px;
+            max-width: 600px;
+            text-align: center;
+        }
+        .logo { font-size: 72px; margin-bottom: 20px; }
+        h1 { font-size: 48px; color: #333; margin-bottom: 10px; }
+        .tagline { font-size: 20px; color: #666; margin-bottom: 40px; }
+        .features {
+            text-align: left;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+        .features h3 { color: #333; margin-bottom: 15px; }
+        .features ul { list-style: none; color: #555; line-height: 2; }
+        .features li::before { content: "✓ "; color: #667eea; font-weight: bold; }
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+        .version { margin-top: 15px; color: #999; font-size: 14px; }
+        .requirements { margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
+        .footer { margin-top: 30px; color: #aaa; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">📝</div>
+        <h1>Nota5</h1>
+        <p class="tagline">简单、极速的 Markdown 编辑器</p>
+        <div class="features">
+            <h3>功能特点</h3>
+            <ul>
+                <li>实时预览，编辑/预览/分屏三种模式</li>
+                <li>KaTeX 数学公式支持</li>
+                <li>Mermaid 图表支持</li>
+                <li>代码高亮</li>
+                <li>图片粘贴与拖拽</li>
+                <li>导出 PDF / HTML</li>
+                <li>原生 macOS 应用，流畅体验</li>
+            </ul>
+        </div>
+        <a href="Nota5-Installer-v1.3.21.dmg" class="download-btn">⬇️ 下载 Nota5</a>
+        <p class="version">当前版本：v1.3.21</p>
+        <p class="requirements">系统要求：macOS 14.0+｜支持 Apple Silicon 与 Intel</p>
+        <p class="footer">© 2026 Nota5</p>
+    </div>
+</body>
+</html>
