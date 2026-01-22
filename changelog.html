@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota5 更新日志</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 50px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 { font-size: 32px; color: #333; margin-bottom: 10px; }
+        .subtitle { color: #666; margin-bottom: 30px; }
+        .version-block { margin-bottom: 30px; }
+        .version-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+        .version-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .version-tag.latest {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+        .version-date { color: #999; font-size: 14px; }
+        .version-list { margin-left: 20px; color: #555; line-height: 2; }
+        .version-list li { margin-bottom: 5px; }
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            margin-right: 5px;
+        }
+        .badge-new { background: #e8f5e9; color: #2e7d32; }
+        .badge-fix { background: #fff3e0; color: #ef6c00; }
+        .badge-improve { background: #e3f2fd; color: #1565c0; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #667eea; text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← 返回下载页</a>
+        <h1>📋 更新日志</h1>
+        <p class="subtitle">Nota5 版本历史</p>
+        
+        <div class="version-block">
+            <div class="version-header">
+                <span class="version-tag latest">v1.3.22</span>
+                <span class="version-date">2026-01-22</span>
+            </div>
+            <ul class="version-list">
+                <li><span class="badge badge-new">新功能</span>查找与替换 (⌘F)</li>
+                <li><span class="badge badge-new">新功能</span>工具栏搜索按钮</li>
+                <li><span class="badge badge-fix">修复</span>导出对话框窗口跳动问题</li>
+                <li><span class="badge badge-improve">优化</span>多 Tab 文档切换搜索体验</li>
+            </ul>
+        </div>
+        
+        <div class="version-block">
+            <div class="version-header">
+                <span class="version-tag">v1.3.21</span>
+                <span class="version-date">2026-01-21</span>
+            </div>
+            <ul class="version-list">
+                <li><span class="badge badge-fix">修复</span>导出保存对话框被 Tab 栏遮挡</li>
+                <li><span class="badge badge-improve">优化</span>导出时临时禁用窗口 Tab 合并</li>
+            </ul>
+        </div>
+        
+        <div class="version-block">
+            <div class="version-header">
+                <span class="version-tag">v1.3.20</span>
+                <span class="version-date">2026-01-20</span>
+            </div>
+            <ul class="version-list">
+                <li><span class="badge badge-improve">优化</span>简化窗口管理逻辑</li>
+                <li><span class="badge badge-fix">修复</span>启动时小窗口问题</li>
+            </ul>
+        </div>
+        
+        <div class="version-block">
+            <div class="version-header">
+                <span class="version-tag">v1.3.19</span>
+                <span class="version-date">2026-01-19</span>
+            </div>
+            <ul class="version-list">
+                <li><span class="badge badge-new">新功能</span>窗口大小和位置记忆</li>
+                <li><span class="badge badge-improve">优化</span>默认窗口尺寸调整为 1200×800</li>
+            </ul>
+        </div>
+        
+        <div class="version-block">
+            <div class="version-header">
+                <span class="version-tag">v1.3.18</span>
+                <span class="version-date">2026-01-18</span>
+            </div>
+            <ul class="version-list">
+                <li><span class="badge badge-new">新功能</span>TOC 目录导航</li>
+                <li><span class="badge badge-new">新功能</span>点击目录跳转编辑器对应位置</li>
+                <li><span class="badge badge-fix">修复</span>代码块内容被误识别为标题</li>
+            </ul>
+        </div>
+        
+        <div class="version-block">
+            <div class="version-header">
+                <span class="version-tag">v1.3.17</span>
+                <span class="version-date">2026-01-17</span>
+            </div>
+            <ul class="version-list">
+                <li><span class="badge badge-improve">优化</span>侧边栏布局</li>
+                <li><span class="badge badge-new">新功能</span>⌘O 在当前窗口新 Tab 打开文档</li>
+            </ul>
+        </div>
+        
+        <div class="version-block">
+            <div class="version-header">
+                <span class="version-tag">v1.3.16</span>
+                <span class="version-date">2026-01-16</span>
+            </div>
+            <ul class="version-list">
+                <li><span class="badge badge-new">新功能</span>列表自动补全（有序/无序/任务）</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -78,11 +78,7 @@
         }
         .version { margin-top: 15px; color: #666; font-size: 14px; }
         .requirements { margin-top: 6px; color: #999; font-size: 12px; }
-        
-        /* 截图展示 - 主图 + 缩略图 */
-        .gallery {
-            margin-top: 20px;
-        }
+        .gallery { margin-top: 20px; }
         .main-image {
             border-radius: 12px;
             overflow: hidden;
@@ -93,7 +89,6 @@
             width: 100%;
             height: auto;
             display: block;
-            transition: opacity 0.3s ease;
         }
         .thumbnails {
             display: flex;
@@ -111,27 +106,28 @@
             transition: all 0.2s;
             border: 2px solid transparent;
         }
-        .thumb:hover {
-            opacity: 0.8;
-        }
-        .thumb.active {
-            opacity: 1;
-            border-color: #667eea;
-        }
-        .thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
+        .thumb:hover { opacity: 0.8; }
+        .thumb.active { opacity: 1; border-color: #667eea; }
+        .thumb img { width: 100%; height: 100%; object-fit: cover; }
         .footer {
             text-align: center;
-            color: #aaa;
-            font-size: 12px;
+            color: #888;
+            font-size: 13px;
             margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid #eee;
         }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 15px;
+        }
+        .footer-links a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .footer-links a:hover { text-decoration: underline; }
         @media (max-width: 700px) {
             .hero { flex-direction: column; gap: 30px; }
             .hero-right { width: 100%; }
@@ -172,36 +168,29 @@
                 <img id="mainImg" src="screenshots/screenshot1.png" alt="Nota5 截图">
             </div>
             <div class="thumbnails">
-                <div class="thumb active" onclick="showImage(0)">
-                    <img src="screenshots/screenshot1.png" alt="缩略图1">
-                </div>
-                <div class="thumb" onclick="showImage(1)">
-                    <img src="screenshots/screenshot2.png" alt="缩略图2">
-                </div>
-                <div class="thumb" onclick="showImage(2)">
-                    <img src="screenshots/screenshot3.png" alt="缩略图3">
-                </div>
-                <div class="thumb" onclick="showImage(3)">
-                    <img src="screenshots/screenshot4.png" alt="缩略图4">
-                </div>
+                <div class="thumb active" onclick="showImage(0)"><img src="screenshots/screenshot1.png"></div>
+                <div class="thumb" onclick="showImage(1)"><img src="screenshots/screenshot2.png"></div>
+                <div class="thumb" onclick="showImage(2)"><img src="screenshots/screenshot3.png"></div>
+                <div class="thumb" onclick="showImage(3)"><img src="screenshots/screenshot4.png"></div>
             </div>
         </div>
         
-        <p class="footer">© 2026 Nota5</p>
+        <div class="footer">
+            <div class="footer-links">
+                <a href="help.html">📖 帮助文档</a>
+                <a href="changelog.html">📋 更新日志</a>
+                <a href="mailto:okok.galagala@gmail.com">📧 反馈建议</a>
+            </div>
+            <p>© 2026 Nota5</p>
+        </div>
     </div>
     <script>
-        const images = [
-            'screenshots/screenshot1.png',
-            'screenshots/screenshot2.png',
-            'screenshots/screenshot3.png',
-            'screenshots/screenshot4.png'
-        ];
+        const images = ['screenshots/screenshot1.png','screenshots/screenshot2.png','screenshots/screenshot3.png','screenshots/screenshot4.png'];
         const mainImg = document.getElementById('mainImg');
         const thumbs = document.querySelectorAll('.thumb');
-        
-        function showImage(index) {
-            mainImg.src = images[index];
-            thumbs.forEach((t, i) => t.classList.toggle('active', i === index));
+        function showImage(i) {
+            mainImg.src = images[i];
+            thumbs.forEach((t, idx) => t.classList.toggle('active', idx === i));
         }
     </script>
 </body>
